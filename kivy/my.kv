@@ -1,0 +1,65 @@
+WindowManager:
+    MainWindow:
+    Gamee:
+    SecondWindow:
+   
+
+<MainWindow>:
+    name:"main"
+    BoxLayout:        
+        Button:
+            markup:True
+            font_size:20
+            size:root.width,root.height
+            background_color: [192,192,192]
+            opacity:0.6
+            on_release:
+                app.root.current="another"
+            Image:
+                source:'pic.jpg'
+                size:root.width,root.height
+        
+<Gamee>:
+    name:"another"
+    namee:name
+    password:password
+    conf_password:conf_password
+    GridLayout:
+        cols:1
+        size:root.width,root.height
+        pos:0,0
+
+        GridLayout:
+            cols:2
+            Label:
+                text:"Name"
+            TextInput:
+                id:name
+                multiline:False
+
+            Label:
+                text:"Password"
+            TextInput:
+                id:password
+                multiline:False
+
+            Label:
+                text:"Conform Password"
+            TextInput:
+                id:conf_password
+                multiline:False
+        Button:
+            id:btnn
+            text: "Submit" if btnn.state=="normal" else "Done"
+            background_color:0.9,0.1,0.5,1
+            on_press:root.btn()
+            on_release:
+                app.root.current="second"
+
+<SecondWindow>:
+    name:"second"
+    Button:
+        text:"Button"
+        on_release:
+            app.root.current="main"
+
